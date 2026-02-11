@@ -1,0 +1,368 @@
+/* Modern Gradient Background */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* Enhanced Navigation */
+nav {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+nav .text-3xl {
+    background: linear-gradient(45deg, #ff7eb3, #ff758c, #ff7eb3, #ff758c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+nav a {
+    transition: all 0.3s ease;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassmorphism Card Effect */
+.container .max-w-2xl, .max-w-md {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.container .max-w-2xl:hover, .max-w-md:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.45);
+}
+
+/* Enhanced Headers */
+h2 {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 2px;
+}
+
+h3 {
+    color: #2d3748;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Animated Input Fields */
+input[type="text"], input[type="email"], input[type="password"] {
+    background: rgba(247, 250, 252, 0.8);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Enhanced Buttons */
+button, .bg-blue-600 {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover, .bg-blue-600:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(45deg, #5a6fd8, #6a4190);
+}
+
+button:active, .bg-blue-600:active {
+    transform: translateY(-1px);
+}
+
+/* Animated Button Ripple Effect */
+button::before, .bg-blue-600::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:active::before, .bg-blue-600:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Loading Spinner Enhancement */
+#loadingSpinner {
+    margin-top: 2rem;
+}
+
+#loadingSpinner .animate-spin {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+    border-color: #667eea;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Blog Preview Styling */
+#blogContent {
+    background: rgba(247, 250, 252, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    min-height: 200px;
+    transition: all 0.3s ease;
+}
+
+#blogContent:hover {
+    background: rgba(247, 250, 252, 0.8);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+/* Blog List Items */
+#blogList .border {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+#blogList .border:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+/* Text Styling */
+.text-gray-700 {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Form Layout Enhancement */
+form {
+    padding: 10px;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.block {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    nav {
+        padding: 1rem;
+    }
+    
+    nav .text-3xl {
+        font-size: 1.875rem;
+    }
+    
+    .max-w-2xl, .max-w-md {
+        margin: 1rem;
+        border-radius: 15px;
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+}
+
+/* Additional enhancements for fixed navbar */
+nav {
+    transition: all 0.3s ease;
+}
+
+nav:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Content spacing for fixed navbar */
+.mt-10 {
+    margin-top: 5rem;
+}
+
+.py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Removed floating animation for stability */
+
+/* Success/Error Message Styling */
+.text-red-500 {
+    color: #e53e3e;
+    background: rgba(254, 215, 215, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #e53e3e;
+}
+
+/* Input Group Enhancement */
+.flex.space-x-4 {
+    gap: 0;
+}
+
+.flex.space-x-4 input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+
+.flex.space-x-4 button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+}
+
+/* Focus Ring Enhancement */
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a4190);
+}
+
+/* Enhanced form styling */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Perfect input alignment */
+.flex.gap-4.items-center {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#YoutubeURL {
+    flex: 1;
+    min-width: 0; /* Allow flex item to shrink */
+}
+
+#generateBtn {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    white-space: nowrap;
+}
+
+/* Label styling */
+label {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}

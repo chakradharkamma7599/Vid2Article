@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="flex flex-col min-h-screen font-sans antialiased">
+
+    <nav class="bg-gradient-to-r from-purple-700 to-pink-600 p-4 px-10 text-white text-bold flex justify-between items-center shadow-lg">
+        <div class="text-3xl ml-6 font-bold">Vid2Blog AI</div>
+        <div><a href="/logout" class="text-white mr-6 hover:underline transition-all duration-300 hover:scale-110 font-medium">Logout</a></div>
+    </nav>
+
+    <!-- Main content area -->
+     <div class="flex-grow container mx-auto px-4 py-12">
+        <!-- Main Container -->
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
+            
+            <!-- URL Input Container -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">Vid2Blog AI</h2>
+                <p class="text-gray-600 text-lg mb-8 text-center">Generate high-quality blog articles from YouTube videos</p>
+                
+                <div class="flex gap-4 items-center">
+                    <input id="YoutubeURL" class="flex-1 py-4 px-6 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl border-2 border-gray-300 placeholder-gray-500 text-gray-800 font-medium" type="text" placeholder="https://www.youtube.com/watch?v=example">
+                    <button id="generateBtn" class="px-8 py-4 text-lg font-bold hover:shadow-xl transition-all duration-300 rounded-xl transform hover:scale-105 whitespace-nowrap bg-gradient-to-r from-purple-600 to-pink-600 text-white">Generate Blog</button>
+                </div>
+            </div>
+
+            <!-- Loading Circle -->
+            <div id="loadingSpinner" class="flex hidden justify-center my-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-purple-600"></div>
+            </div>
+
+            <!-- Generated Content Container -->
+            <div id="blogPreview" class="mt-8">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800 text-center">Generated Blog Preview</h3>
+                <div id="blogContent" class="p-6 bg-gray-50 rounded-xl border border-gray-200 min-h-[200px]">
+                    <div id="loadingMessage" class="text-center text-gray-600 text-lg py-12">Enter a YouTube URL and click Generate Blog</div>
+                </div>
+            </div>
+        </div>
+        </div>
+     </div>
+    <script>
+document.getElementById('generateBtn').addEventListener('click', async () => {
+
+    const youtubeLink = document.getElementById('YoutubeURL').value.trim();
+    const spinner = document.getElementById('loadingSpinner');
+
+    spinner.classList.remove('hidden');
+
+    if (!youtubeLink) {
+        spinner.classList.add('hidden');
+        alert("Please enter a YouTube link.");
+        return;
+    }
+
+    try {
+        const response = await fetch('/generate-article/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ link: youtubeLink })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // ✅ Redirect to blog details page
+            window.location.href = `/blog/${data.blog_id}/`;
+        } else {
+            alert(data.error || "Something went wrong");
+        }
+
+    } catch (err) {
+        alert("Server error");
+    }
+
+    spinner.classList.add('hidden');
+});
+</script>
+
+
+  </body>
+</html>

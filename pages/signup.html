@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Sign Up Page</title>
+</head>
+<body class="font-sans antialiased">
+
+    <nav class="bg-gradient-to-r from-purple-700 to-pink-600 p-4 px-10 text-white text-bold flex justify-between items-center shadow-lg">
+        <div class="text-3xl ml-6 font-bold">Vid2Blog AI</div>
+        <div>
+            <a href="/login" class="text-white mr-4 hover:underline transition-all duration-300 hover:scale-110 font-medium">Login</a>
+            <a href="/signup" class="text-white mr-6 hover:underline transition-all duration-300 hover:scale-110 font-medium">Signup</a>
+        </div>
+    </nav>
+
+    <!-- Main content area -->
+     <div class="container mx-auto px-4 py-12">
+        <div class="max-w-md mx-auto bg-white rounded-2xl shadow-2xl p-8">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">Sign Up for Vid2Blog AI</h2>
+            
+            <form action="{% url 'signup' %}" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                    <div class="mb-6 text-red-600 text-center">{{ error }}</div>
+                {% endif %}
+
+                <!-- Username -->
+                <div class="mb-6">
+                    <label class="block font-medium mb-3 text-lg text-gray-700">Username</label>
+                    <input
+                    type="text"
+                    name="username"
+                    class="w-full py-4 px-6 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl border-2 border-gray-300 placeholder-gray-500 text-gray-800 font-medium"
+                    placeholder="Enter your username"
+                    required
+                    >
+                </div>
+
+                <!-- Email -->
+                <div class="mb-6">
+                    <label class="block font-medium mb-3 text-lg text-gray-700">Email</label>
+                    <input type="email" name="email" class="w-full py-4 px-6 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl border-2 border-gray-300 placeholder-gray-500 text-gray-800 font-medium" placeholder="you@example.com" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-6">
+                    <label class="block font-medium mb-3 text-lg text-gray-700">Password</label>
+                    <input type="password" name="password" class="w-full py-4 px-6 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl border-2 border-gray-300 placeholder-gray-500 text-gray-800 font-medium" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-8">
+                    <label class="block font-medium mb-3 text-lg text-gray-700">Confirm Password</label>
+                    <input type="password" name="confirm_password" class="w-full py-4 px-6 text-lg focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl border-2 border-gray-300 placeholder-gray-500 text-gray-800 font-medium" required>
+                </div>
+
+                <button class="w-full py-4 text-lg font-bold hover:shadow-xl transition-all duration-300 rounded-xl transform hover:scale-105 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+                    Sign Up
+                </button>
+            </form>
+
+        </div>
+     </div>
+
+</body>
+</html>

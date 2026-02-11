@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.youtube_title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/pages/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-purple-700 to-pink-600 p-4 px-10 text-white text-bold flex justify-between items-center shadow-lg">
+        <div class="text-3xl ml-6 font-bold">Vid2Blog AI</div>
+        <div><a href="/logout" class="text-white mr-6 hover:underline transition-all duration-300 hover:scale-110 font-medium">Logout</a></div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
+
+            <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">
+                {{ blog.youtube_title }}
+            </h2>
+
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 mb-8">
+                <p class="text-gray-700 whitespace-pre-line text-lg leading-relaxed">
+                    {{ blog.content }}
+                </p>
+            </div>
+
+            <div class="text-center">
+                <p class="text-gray-700 text-lg">
+                    <strong>YouTube Link:</strong>
+                    <a href="{{ blog.youtube_link }}" target="_blank"
+                       class="text-purple-600 hover:text-purple-800 hover:underline transition-all duration-300 ml-2">
+                        {{ blog.youtube_link }}
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
