@@ -12,7 +12,7 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    ".railway.app",
+    "vid2article.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
